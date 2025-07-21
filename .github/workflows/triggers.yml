@@ -1,0 +1,28 @@
+name: triggers
+run-name: 3 Triggers!
+
+on:
+  push:
+    branches: ["main", "aprendiendo-**"]
+    paths:
+      - "main.py" #solo se ejecutara si se hace un push y el archivo main.py es modificado
+
+  pull_request: #Trigger para ejecutar el workflow cuando se crea un pull request
+    branches: ["main", "aprendiendo-**"]
+    paths:
+      - "main.py"
+
+  workflow_dispatch: #Trigger para ejecutar el workflow manualmente
+
+jobs:
+  3 triggers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v3
+      - name: definir variable
+        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
+      - name: Correr el script con variables
+        run: python main.py
+      - name: Finalizando el workflow
+        run: echo "workflow finalizado con exito!!"
