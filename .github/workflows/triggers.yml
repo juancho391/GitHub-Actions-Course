@@ -1,5 +1,5 @@
 name: triggers
-run-name: Three_Triggers!
+run-name: Triggers!
 
 on:
   push:
@@ -15,7 +15,7 @@ on:
   workflow_dispatch: #Trigger para ejecutar el workflow manualmente
 
 jobs:
-  3 triggers:
+  three_triggers:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout del repositorio
