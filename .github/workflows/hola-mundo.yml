@@ -1,0 +1,15 @@
+name: hola-mundo #Nombre del workflow
+
+on: #Trigger o evento que activa el workflow
+  push: #Cuando se hace un push a la rama main
+    branches:
+      - main #A la rama main
+
+jobs: #Tareas que se ejecutaran
+  hola-mundo: #Nombre del job
+    runs-on: ubuntu-latest #imagen del sistema operativo que se usara
+    steps:
+      - name: Checkout del repositorio #nombre del paso
+        uses: actions/checkout@v3 #Accion que se usara para hacer checkout del repositorio
+      - name: Correr el script #
+        run: python main.py #Comando que se ejecutara en el runner, en este caso correr el script main.py
