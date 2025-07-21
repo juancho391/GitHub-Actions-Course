@@ -1,5 +1,5 @@
 name: triggers
-run-name: 3 Triggers!
+run-name: Three_Triggers!
 
 on:
   push:
