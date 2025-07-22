@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: mostrar variables env usando el contexto
-        run: echo "${{ env.PORT }} ${PORT} ${USERNAME}} ${PASSWORD}}"
+        run: echo  "${PORT} ${USERNAME} ${PASSWORD}"
   contexto-github:
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
