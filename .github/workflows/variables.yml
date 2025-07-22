@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: saludar
-        run: echo "Hola $NOMBRE desde variables de github para todo el repositorio"
+        run: echo "Hola ${{ env.NOMBRE}} desde variables de github para todo el repositorio"
       - name: mostrando secrets
         run: echo "el secret key es ${{ env.secret_key }}"
+      - name: mostrando variables env
+        run: env
