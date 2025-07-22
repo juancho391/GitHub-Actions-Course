@@ -11,9 +11,7 @@ jobs:
   saludo:
     runs-on: ubuntu-latest
     steps:
-      - name: saludar
+      - name: saludar usando vars
         run: echo "Hola $nombre desde variables de github para todo el repositorio"
-      - name: mostrando secrets
+      - name: intentado mostrar secrets
         run: echo "el secret key es $secret_key"
-      - name: mostrando vars
-        run: v
