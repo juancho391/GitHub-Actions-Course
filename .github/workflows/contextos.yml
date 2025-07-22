@@ -18,6 +18,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: mostrar variables github usando el contexto
-        run: echo "${{ github.event_name }} ${GITHUB_EVENT_NAME}} ${GITHUB_WORKFLOW}}"
+        run: echo "${{ github.event_name }} ${GITHUB_EVENT_NAME} ${GITHUB_WORKFLOW}"
       - name: mensaje
         run: echo "Desplegando en la rama $GITHUB_REF"
