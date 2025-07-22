@@ -1,0 +1,23 @@
+name: Contextos
+on:
+  push:
+    branches:
+      - main
+env:
+  PORT: 8000
+  USERNAME: Juan391
+  PASSWORD: pass123
+jobs:
+  contexto-env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: mostrar variables env usando el contexto
+        run: echo "${{ env.PORT }} ${PORT} ${USERNAME}} ${PASSWORD}}"
+  contexto-github:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: mostrar variables github usando el contexto
+        run: echo "${{ github.event_name }} ${GITHUB_EVENT_NAME}} ${GITHUB_WORKFLOW}}"
+      - name: mensaje
+        run: echo "Desplegando en la rama $GITHUB_REF"
