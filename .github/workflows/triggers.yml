@@ -30,7 +30,7 @@ on:
         type: string
 
 jobs:
-  three_triggers:
+  three_triggers-manual:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout del repositorio
@@ -43,3 +43,13 @@ jobs:
         run: python main.py
       - name: Finalizando el workflow
         run: echo "workflow finalizado con exito!!"
+  three_triggers:
+    if: ${{github.event_name != 'workflow_dispatch'}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout del repositorio
+        uses: actions/checkout@v3
+      - name: definir variable nombre
+        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
+      - name: correr el script
+        run: python main.py
