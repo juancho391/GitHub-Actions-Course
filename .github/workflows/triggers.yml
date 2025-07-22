@@ -13,6 +13,21 @@ on:
       - "main.py"
 
   workflow_dispatch: #Trigger para ejecutar el workflow manualmente
+    inputs:
+      lenguaje_favorito:
+        description: "lenguaje favorito"
+        required: true
+        default: "python"
+        type: choice
+        options:
+          - python
+          - javascript
+          - java
+      nombre:
+        description: "tu nombre"
+        required: true
+        default: Juan
+        type: string
 
 jobs:
   three_triggers:
@@ -20,8 +35,10 @@ jobs:
     steps:
       - name: Checkout del repositorio
         uses: actions/checkout@v3
-      - name: definir variable
-        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
+      - name: definir variable nombre
+        run: echo "USERNAME=${{ inputs.nombre }}" >> $GITHUB_ENV
+      - name: definir variable lenguaje
+        run: echo "LENGUAJE=${{ inputs.lenguaje_favorito }}" >> $GITHUB_ENV
       - name: Correr el script con variables
         run: python main.py
       - name: Finalizando el workflow
