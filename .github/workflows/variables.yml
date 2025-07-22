@@ -1,0 +1,16 @@
+name: saludo usando variables
+on:
+  push:
+    branches:
+      - main
+env:
+  secret_key: ${{ secrets.SECRET_KEY }}
+
+jobs:
+  saludo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: saludar
+        run: echo "Hola $NOMBRE desde variables de github para todo el repositorio"
+      - name: mostrando secrets
+        run: echo "el secret key es ${{ env.secret_key }}"
