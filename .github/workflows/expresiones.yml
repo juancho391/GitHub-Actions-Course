@@ -1,0 +1,34 @@
+name: expresiones
+run-name: Expresiones!
+
+on:
+  workflow_dispatch:
+    inputs:
+      nombre:
+        description: "Tu nombre"
+        required: true
+        default: "Juan"
+        type: string
+      edad:
+        description: "Tu edad"
+        required: true
+        type: number
+
+jobs:
+  expresiones:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Evaluar edad
+        if: ${{ inputs.edad >= 18 }}
+        run: echo "Hola ${{ inputs.nombre }}, eres mayor de edad."
+      - name: evaluar nombre
+        if: contains(inputs.nombre, 'J')
+        run: echo "tu nombre contiene la letra J"
+      - name: Mostrar JSON del evento
+        run: echo '${{ toJson(github.event)}}'
+  menor:
+    if: ${{ inputs.edad < 18 }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mensaje
+        run: echo "Hola ${{ github.actor }}, eres menor de edad."
