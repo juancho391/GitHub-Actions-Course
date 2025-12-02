@@ -10,6 +10,6 @@ jobs: #Tareas que se ejecutaran
     runs-on: ubuntu-latest #imagen del sistema operativo que se usara
     steps:
       - name: Checkout del repositorio #nombre del paso
-        uses: actions/checkout@v3 #Accion que se usara para hacer checkout del repositorio
+        uses: actions/checkout@v6 #Accion que se usara para hacer checkout del repositorio
       - name: Correr el script #
         run: python main.py #Comando que se ejecutara en el runner, en este caso correr el script main.py
